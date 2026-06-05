@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Wang | Creative Portfolio</title>
+    <meta name="description" content="Ian Wang 的個人創意履歷網站。展示前端開發、UI/UX 設計技能，並包含精美實時時鐘與深淺色主題切換。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-glow bg-glow-1" id="glow-1"></div>
+    <div class="bg-glow bg-glow-2" id="glow-2"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo" id="header-logo">
+                <span class="logo-dot"></span>IAN.DEV
+            </a>
+            
+            <nav class="nav-links" id="nav-menu">
+                <a href="#hero" class="nav-link active">首頁</a>
+                <a href="#about" class="nav-link">關於我</a>
+                <a href="#skills" class="nav-link">專業技能</a>
+                <a href="#portfolio" class="nav-link">個人作品</a>
+                <a href="#contact" class="nav-link">聯絡我</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-btn" id="theme-toggle" aria-label="切換深淺色模式">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="開啟選單">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="hero-content">
+                <div class="badge">👋 歡迎來到我的個人網站</div>
+                <h1 class="hero-title">
+                    Hi, 我是 <span class="gradient-text">Ian Wang</span>
+                </h1>
+                <p class="hero-subtitle">Creative Frontend Engineer & Designer</p>
+                <p class="hero-description">
+                    熱衷於打造兼具視覺美感與極致使用者體驗的網頁應用。擅長將複雜的邏輯轉化為優雅直覺的介面設計。目前專注於響應式設計、動態互動效果與前端效能優化。
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">與我聯絡 <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#portfolio" class="btn btn-secondary">瀏覽作品</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="mailto:ian.wang@example.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <!-- Right Visual (Clock & Avatar) -->
+            <div class="hero-visual">
+                <!-- Real-time Clock Card -->
+                <div class="clock-card glass-card" id="live-clock-card">
+                    <div class="clock-header">
+                        <div class="clock-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">LIVE CLOCK</span>
+                        </div>
+                        <div class="clock-timezone-badge" id="clock-timezone">GMT+8</div>
+                    </div>
+                    <div class="clock-time-display" id="clock-time">00:00:00</div>
+                    <div class="clock-date-display" id="clock-date">2026年6月5日 星期五</div>
+                </div>
+
+                <!-- Avatar Card -->
+                <div class="avatar-card glass-card">
+                    <div class="avatar-wrapper">
+                        <img src="avatar.png" alt="Ian Wang's Avatar" class="avatar-img">
+                    </div>
+                    <div class="avatar-info">
+                        <h3>Ian Wang</h3>
+                        <p>📍 台灣，台北 (Taipei, Taiwan)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">關於我</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text-card glass-card">
+                    <h3 class="card-subtitle">我是誰？</h3>
+                    <p>
+                        我是 Ian Wang，一名熱愛前端開發與介面設計的工程師。擁有豐富的網頁專案開發經驗，致力於將美學與程式碼完美融合。我喜愛挑戰各種具互動性與視覺震撼的動態效果，並隨時學習最新的前端技術以保持競爭力。
+                    </p>
+                    <p>
+                        我相信一個優秀的網站不僅要功能完備，更需要給使用者帶來視覺上的享受。這就是為什麼我在開發過程中極度注重排版細節、配色調和以及流暢的微動畫效果。
+                    </p>
+                    <div class="personal-info-grid">
+                        <div class="info-item">
+                            <span class="info-label">學歷</span>
+                            <span class="info-value">資訊工程學系 學士</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">信箱</span>
+                            <span class="info-value">ian.wang@example.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">核心領域</span>
+                            <span class="info-value">網頁開發 / UIUX設計</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">工作模式</span>
+                            <span class="info-value">接受遠端 / 自由接案</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-stats-card glass-card">
+                    <div class="stat-box">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">專案開發經驗 (年)</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">完成個人專案</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">客戶滿意度</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section section-padding" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">My Expertise</span>
+                <h2 class="section-title">專業技能</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Frontend Development -->
+                <div class="skills-category glass-card">
+                    <div class="category-header">
+                        <i class="fa-solid fa-code category-icon"></i>
+                        <h3>前端開發 (Frontend)</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-progress-item">
+                            <div class="skill-name-info">
+                                <span>HTML5 / CSS3 / ES6+</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-progress-item">
+                            <div class="skill-name-info">
+                                <span>JavaScript (Vanilla JS)</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-progress-item">
+                            <div class="skill-name-info">
+                                <span>Responsive Web Design (RWD)</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design & Creative -->
+                <div class="skills-category glass-card">
+                    <div class="category-header">
+                        <i class="fa-solid fa-palette category-icon"></i>
+                        <h3>設計與創意 (Design & Creative)</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-progress-item">
+                            <div class="skill-name-info">
+                                <span>UI/UX Interface Design</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-progress-item">
+                            <div class="skill-name-info">
+                                <span>Figma / Adobe XD</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-progress-item">
+                            <div class="skill-name-info">
+                                <span>Brand Identity & Layout</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Others -->
+                <div class="skills-category glass-card">
+                    <div class="category-header">
+                        <i class="fa-solid fa-screwdriver-wrench category-icon"></i>
+                        <h3>工具與其他 (Tools & Others)</h3>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip"><i class="fa-brands fa-git-alt"></i> Git / GitHub</span>
+                        <span class="skill-chip"><i class="fa-brands fa-npm"></i> NPM / Build Tools</span>
+                        <span class="skill-chip"><i class="fa-solid fa-terminal"></i> Command Line</span>
+                        <span class="skill-chip"><i class="fa-solid fa-magnifying-glass"></i> SEO Best Practices</span>
+                        <span class="skill-chip"><i class="fa-solid fa-gauge-high"></i> Performance Tuning</span>
+                        <span class="skill-chip"><i class="fa-solid fa-shield-halved"></i> Web Standards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section section-padding" id="portfolio">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Featured Works</span>
+                <h2 class="section-title">精選作品</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <article class="project-card glass-card">
+                    <div class="project-preview">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="查看專案詳情"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="project-placeholder-img proj-img-1">
+                            <i class="fa-solid fa-chart-line project-icon"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">Web Application</span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h3 class="project-title">智能數據分析後台</h3>
+                        <p class="project-desc">
+                            使用 HTML5、CSS3 與 Vanilla JS 打造的響應式管理後台。內建多種精美的圖表分析、動態搜尋過濾，以及玻璃擬態 UI。
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS Grid</span>
+                            <span>JS ES6</span>
+                            <span>Chart.js</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card glass-card">
+                    <div class="project-preview">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="查看專案詳情"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="project-placeholder-img proj-img-2">
+                            <i class="fa-solid fa-cart-shopping project-icon"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">E-Commerce</span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <h3 class="project-title">極簡風線上選物店</h3>
+                        <p class="project-desc">
+                            著重於極簡設計的電商前台網頁。整合流暢的購物車添加動畫、商品詳情彈窗與自適應篩選面板。
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>Flexbox</span>
+                            <span>Transitions</span>
+                            <span>Web Storage</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card glass-card">
+                    <div class="project-preview">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" aria-label="查看專案詳情"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                        <div class="project-placeholder-img proj-img-3">
+                            <i class="fa-solid fa-music project-icon"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">Interactive Design</span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <h3 class="project-title">互動式微光音樂播放器</h3>
+                        <p class="project-desc">
+                            一款擁有酷炫霓虹發光與頻率波形視覺效果的網頁音樂播放器。支援播放清單管理、歌詞滾動與自訂背景漸層。
+                        </p>
+                        <div class="project-tech">
+                            <span>Web Audio API</span>
+                            <span>CSS Keyframes</span>
+                            <span>Canvas</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">聯絡我</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info-card glass-card">
+                    <h3>讓我們聊聊吧！</h3>
+                    <p class="contact-lead">
+                        如果您有任何專案合作的機會、接案需求，或是單純想交流前端開發技術，都非常歡迎隨時與我聯絡！
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="detail-content">
+                                <h4>寄信給我</h4>
+                                <a href="mailto:ian.wang@example.com">ian.wang@example.com</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="detail-content">
+                                <h4>目前所在地</h4>
+                                <p>台灣，台北市 (Taipei, Taiwan)</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="detail-content">
+                                <h4>工作時間</h4>
+                                <p>週一至週五，09:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-card glass-card">
+                    <form id="contact-form" onsubmit="event.preventDefault(); alert('感謝您的訊息！這只是一個前端展示頁面，訊息並未真正發出。');">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">您的姓名</label>
+                                <input type="text" id="contact-name" placeholder="請輸入姓名" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">您的信箱</label>
+                                <input type="email" id="contact-email" placeholder="name@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">您的訊息</label>
+                            <textarea id="contact-message" rows="5" placeholder="說點什麼吧..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" id="contact-submit">
+                            發送訊息 <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">IAN.DEV</div>
+            <p class="footer-copy">
+                &copy; 2026 Ian Wang. 版權所有。由 Antigravity 團隊精心打造。
+            </p>
+            <div class="footer-social">
+                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:ian.wang@example.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
