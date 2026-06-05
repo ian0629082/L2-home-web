@@ -14,7 +14,7 @@
 
 ## 🎯 網站特色 (Key Features)
 - **簡潔履歷風格**：以 Wix 簡約履歷設計為參考，呈現大氣且現代感十足的介面。
-- **個人照片展示**：加入自訂個人頭像插畫（`avatar.png`），取代預設的空白圖像。
+- **個人照片展示**：加入個人照片（`IMG_1587.JPG`），取代預設的空白圖像。
 - **即時時間顯示**：實作每秒自動更新的動態時鐘與本地時區自動偵測。
 - **響應式設計**：支援 RWD 響應式佈局，完美相容於手機、平板與桌上型電腦。
 
@@ -34,7 +34,7 @@
 - **說明**：建立網站核心結構與內容。包含首頁 (Hero)、關於我 (About)、專業技能 (Skills)、精選作品 (Portfolio) 以及聯絡表單 (Contact) 等語意化區塊。
 
 ### 3️⃣ 加入個人照片
-- **說明**：將生成的個人頭像插畫檔案（`avatar.png`）加入網站，取代原始碼中的預設頭像，使個人履歷更具個人特色與品牌識別。
+- **說明**：將個人照片檔案（`IMG_1587.JPG`）加入網站，取代原始碼中的預設頭像，使個人履歷更具個人特色與品牌識別。
 
 ### 4️⃣ 拆分 CSS 與 JS
 - **說明**：將網頁樣式與行為邏輯獨立分離。建立 `style.css` 負責視覺呈現與 RWD 控制；建立 `script.js` 負責動態邏輯，提升程式碼的模組化與可維護性。
@@ -51,7 +51,7 @@
 - 🌐 **[index.html](file:///d:/AI%20class/HW2/index.html)**：網站主要結構與骨架
 - 🎨 **[style.css](file:///d:/AI%20class/HW2/style.css)**：網站美學與自適應樣式表
 - ⚡ **[script.js](file:///d:/AI%20class/HW2/script.js)**：即時時鐘更新與主題切換邏輯
-- 🖼️ **[avatar.png](file:///d:/AI%20class/HW2/avatar.png)**：個人頭像插畫圖片
+- 🖼️ **[IMG_1587.JPG](file:///d:/AI%20class/HW2/IMG_1587.JPG)**：個人頭像照片
 - 📊 **[work_log_process.md](file:///d:/AI%20class/HW2/work_log_process.md)**：開發流程報告檔案（本文件）
 - 📝 **[daily_log.md](file:///d:/AI%20class/HW2/daily_log.md)**：每日開發工作日誌
 - 📖 **[README.md](file:///d:/AI%20class/HW2/README.md)**：專案操作與說明檔案

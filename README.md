@@ -33,7 +33,7 @@ HW2/
 ├── index.html            # 網頁結構，包含各語意化區塊與 DOM 節點
 ├── style.css             # 樣式表，包含主題變數、玻璃擬態樣式與媒體查詢
 ├── script.js             # 即時時鐘、主題切換及滑動監聽邏輯
-├── avatar.png            # AI 生成的質感個人頭像/插畫
+├── IMG_1587.JPG          # 個人頭像照片
 ├── work_log_process.md   # GitHub 專案開發工作日誌流程指南（流程圖與規範）
 ├── daily_log.md          # 每日開發工作日誌（實際紀錄與範本）
 └── README.md             # 本操作與部署指南說明文件
@@ -117,7 +117,7 @@ git push -u origin main
 1. **修改名字與職稱**：
    - 開啟 [index.html](file:///index.html)，搜尋 `Ian Wang` 或 `Creative Frontend Engineer`，將其改為您的英文名字與工作定位。
 2. **替換個人頭像**：
-   - 將您喜歡的個人頭像重新命名為 `avatar.png`，並覆蓋專案根目錄下的同名檔案；或者在 [index.html](file:///index.html) 的第 81 行修改 `<img src="avatar.png" ...>` 的路徑。
+   - 將您喜歡的個人頭像重新命名為 `IMG_1587.JPG`，並覆蓋專案根目錄下的同名檔案；或者在 [index.html](file:///index.html) 的頭像區域修改 `<img src="IMG_1587.JPG" ...>` 的路徑。
 3. **更改技能進度條**：
    - 在 [index.html](file:///index.html) 的 `skills` 區塊中，修改 `style="width: 90%;"` 中的百分比，即可動態變更前端技能條長度。
 4. **修改專案內容**：
