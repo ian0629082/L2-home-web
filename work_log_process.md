@@ -1,56 +1,70 @@
-# 📋 個人網站專案開發與設計流程報告
+# 📋 個人網站開發流程報告
 
-本報告詳細記錄了 **L2-HW2 個人網站專案**從規劃、設計、前端實作至雲端部署的完整開發工作流程。本專案專為 **Ian Wang** 客製化設計，旨在建立一個兼具視覺美感與即時動態功能的創意個人履歷網站。
-
----
-
-## 🔄 網頁開發核心流程圖 (Mermaid)
-
-```mermaid
-graph TD
-    Step1([1. 需求分析與版面規劃]) --> Step2[2. 視覺與頭像設計 avatar.png]
-    Step2 --> Step3[3. 撰寫 index.html 網頁結構]
-    Step3 --> Step4[4. CSS 美化、磨砂玻璃與響應式排版]
-    Step4 --> Step5[5. JS 動態時鐘與主題記憶實作]
-    Step5 --> Step6[6. Git 版本控制與 GitHub 上傳]
-    Step6 --> Step7([7. 啟用 GitHub Pages 部署上線])
-```
-
-### 🖼️ 網頁設計與開發視覺流程圖
-
-![網頁開發流程圖](workflow.png)
+**專案紀錄日期**：2026-06-05  
+**專案名稱**：Ian Wang 個人履歷網站專案  
+**專案概述**：以 Wix 履歷模板為參考，打造簡潔、專業的個人網站，並具備即時時間顯示與響應式設計。
 
 ---
 
-## 🛠️ 開發階段與實作說明
+## 🖼️ 專案開發流程視覺圖
 
-### 階段一：需求分析與版面規劃 (Planning)
-- **核心目標**：分析作業要求，規劃個人履歷必備元素：英文名字（Ian Wang）、每秒自動更新時鐘（Current Time）、自我介紹、作品集、聯絡表單，並引入高階磨砂玻璃（Glassmorphism）與深淺主題切換的設計風格。
-- **配置規劃**：採用單頁式（SPA）滾動版面，利用 CSS Grid 與 Flexbox 實現流暢的區塊過渡。
+![專案開發流程圖](workflow.png)
 
-### 階段二：視覺與品牌資產生成 (Visual Assets)
-- **核心目標**：建立專屬的個人視覺識別。
-- **實作內容**：使用 AI 圖像生成技術，繪製出符合科技感與簡約美學的個人插畫頭像並儲存為 [avatar.png](file:///d:/AI%20class/HW2/avatar.png)，提升網站的專業度與親和力。
+---
 
-### 階段三：HTML 網頁結構編寫 (HTML Markup)
-- **核心目標**：撰寫語意化且符合 SEO 規範的網頁骨架。
-- **實作內容**：編寫 [index.html](file:///d:/AI%20class/HW2/index.html)，建立 `<header>` (導覽列)、`<main>` (英雄區、關於我、專業技能、精選作品、聯絡我) 與 `<footer>` (頁尾) 區塊，並為所有互動元件配置唯一的 `id` 以利程式碼控制。
+## 🎯 網站特色 (Key Features)
+- **簡潔履歷風格**：以 Wix 簡約履歷設計為參考，呈現大氣且現代感十足的介面。
+- **個人照片展示**：加入自訂個人頭像插畫（`avatar.png`），取代預設的空白圖像。
+- **即時時間顯示**：實作每秒自動更新的動態時鐘與本地時區自動偵測。
+- **響應式設計**：支援 RWD 響應式佈局，完美相容於手機、平板與桌上型電腦。
 
-### 階段四：CSS 美化與自適應排版 (CSS Styling & RWD)
-- **核心目標**：實作磨砂玻璃視覺體系與完全響應式（RWD）介面。
-- **實作內容**：編寫 [style.css](file:///d:/AI%20class/HW2/style.css)，定義兩套 CSS 變數（深色模式、淺色模式），使用 `backdrop-filter: blur()` 與半透明邊框建立玻璃拟態卡片；加入浮動背景發光裝飾與微動畫；設定 `@media` 媒體查詢以確保網頁在手機、平板與電腦皆能完美呈現。
+## 💻 技術使用 (Tech Stack)
+- **HTML5**：建構語意化網頁骨架。
+- **CSS3**：實現磨砂玻璃擬態 (Glassmorphism)、發光漸層背景與自適應排版。
+- **JavaScript (ES6+)**：控制即時時鐘每秒更新、深淺主題切換及 `localStorage` 使用者偏好存取。
 
-### 階段五：JS 即時時鐘與功能邏輯 (JavaScript Logic)
-- **核心目標**：完成動態時間更新與使用者偏好儲存。
-- **實作內容**：編寫 [script.js](file:///d:/AI%20class/HW2/script.js)：
-  1. 使用 `setInterval` 每秒自動取得並格式化系統時間（時:分:秒）與日期。
-  2. 透過 `Intl.DateTimeFormat` 自動偵測本地時區並顯示（如台北時間 GMT+8）。
-  3. 控制深淺色主題切換，並以 `localStorage` 將使用者的主題偏好儲存在瀏覽器中。
-  4. 實作導覽列滾動縮減效果，以及滑鼠移動時背景光暈微幅偏移的視差動態特效。
+---
 
-### 階段六：Git 儲存庫版本控制與部署 (Git & Deployment)
-- **核心目標**：程式碼託管與靜態網站發布。
-- **實作內容**：
-  1. 在本地專案資料夾進行 Git 初始化 (`git init`)、提交程式碼。
-  2. 將專案關聯至 GitHub 遠端儲存庫並推送至 `main` 分支。
-  3. 前往 GitHub Repository 後台的 Settings 啟用 **GitHub Pages** 服務，將網站成功託管上線至網際網路。
+## 🔄 開發流程六大步驟
+
+### 1️⃣ 參考 Wix 履歷模板
+- **說明**：以 Wix "Resume (Simple)" 簡約履歷模板為設計參考，確定整體的版面配置、配色體系與視覺風格方向。
+
+### 2️⃣ 建立 index.html
+- **說明**：建立網站核心結構與內容。包含首頁 (Hero)、關於我 (About)、專業技能 (Skills)、精選作品 (Portfolio) 以及聯絡表單 (Contact) 等語意化區塊。
+
+### 3️⃣ 加入個人照片
+- **說明**：將生成的個人頭像插畫檔案（`avatar.png`）加入網站，取代原始碼中的預設頭像，使個人履歷更具個人特色與品牌識別。
+
+### 4️⃣ 拆分 CSS 與 JS
+- **說明**：將網頁樣式與行為邏輯獨立分離。建立 `style.css` 負責視覺呈現與 RWD 控制；建立 `script.js` 負責動態邏輯，提升程式碼的模組化與可維護性。
+
+### 5️⃣ 撰寫 README 加入資訊
+- **說明**：編寫專案說明文件 `README.md`。詳細載入 GitHub 儲存庫連結、Live Demo 網址、本機啟動步驟及專案說明。
+
+### 6️⃣ 推送到程式碼倉庫
+- **說明**：將所有開發檔案提交並上傳至 GitHub 遠端儲存庫，並設定啟用 GitHub Pages 託管服務，提供無縫的線上 Demo 網址。
+
+---
+
+## 📂 專案檔案結構
+- 🌐 **[index.html](file:///d:/AI%20class/HW2/index.html)**：網站主要結構與骨架
+- 🎨 **[style.css](file:///d:/AI%20class/HW2/style.css)**：網站美學與自適應樣式表
+- ⚡ **[script.js](file:///d:/AI%20class/HW2/script.js)**：即時時鐘更新與主題切換邏輯
+- 🖼️ **[avatar.png](file:///d:/AI%20class/HW2/avatar.png)**：個人頭像插畫圖片
+- 📊 **[work_log_process.md](file:///d:/AI%20class/HW2/work_log_process.md)**：開發流程報告檔案（本文件）
+- 📝 **[daily_log.md](file:///d:/AI%20class/HW2/daily_log.md)**：每日開發工作日誌
+- 📖 **[README.md](file:///d:/AI%20class/HW2/README.md)**：專案操作與說明檔案
+
+---
+
+## 🔗 重要連結
+- **GitHub 儲存庫**：[https://github.com/ian0629082/L2-HW2](https://github.com/ian0629082/L2-HW2)
+- **Live Demo 網頁**：[https://ian0629082.github.io/L2-HW2/](https://ian0629082.github.io/L2-HW2/)
+
+---
+
+## 🏆 完成成果
+一個簡潔、專業、具備即時時間顯示的個人履歷網站，成功上線並可透過 Live Demo 線上瀏覽！
+
+> 💡 **持續學習，持續創作，讓想法落地成真。**
