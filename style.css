@@ -649,7 +649,7 @@ body.light-theme .clock-timezone-badge {
    -------------------------------------------------------------------------- */
 .about-grid {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 1fr;
     gap: 40px;
     align-items: stretch;
 }
