@@ -4,6 +4,8 @@
 
 本網頁專為展示個人簡介、專業技能及作品集而設計，並完美支援行動裝置（RWD 響應式佈局）。
 
+🚀 **Live Demo**: [https://ian0629082.github.io/L2-HW2/](https://ian0629082.github.io/L2-HW2/)
+
 ---
 
 ## ✨ 核心特色
