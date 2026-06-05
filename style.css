@@ -754,7 +754,9 @@ body.light-theme .clock-timezone-badge {
    -------------------------------------------------------------------------- */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
     gap: 30px;
 }
 
