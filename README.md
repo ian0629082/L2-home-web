@@ -10,18 +10,22 @@
 
 ## ✨ 核心特色
 
-1. **⏰ 即時時鐘卡片 (Current Time Card)**
-   - **每秒自動更新**時間，格式為 `HH:MM:SS`。
-   - 動態顯示目前日期與星期，並自動偵測使用者本地時區（例如：台北時間 GMT+8）。
-   - 卡片邊框附帶霓虹動態發光，以及代表持續運作中的綠色閃爍呼吸燈。
-2. **🌗 深淺主題一鍵切換**
+1. **👤 首頁自我介紹 (Hero)**
+   - 首頁直接整合個人自我介紹文字與大頭照，訪客一進站就能快速了解你是誰、擅長什麼技術。
+   - 社群連結（GitHub / LinkedIn / Email）直接放在介紹文字下方，方便快速聯繫。
+2. **🗂️ 分類作品集 (Tabbed Portfolio)**
+   - 作品依「課堂實作作品」與「專案作品」分頁籤呈現，切換分頁只顯示對應作品。
+   - 每張作品卡片使用真實截圖當縮圖，**整張縮圖框皆可點擊**，直接開新分頁前往該作品的線上 Demo 網址。
+3. **🏷️ 技術標籤 (Skill Chips)**
+   - 專業技能區塊以標籤（chip）呈現實際使用過的技術，不做主觀熟練度評分。
+4. **🌗 深淺主題一鍵切換**
    - 支援深色 (Dark) 與淺色 (Light) 模式切換。
    - 採用 `localStorage` 技術，當訪客重新整理或下次造訪網頁時，**會自動記憶**其先前選擇的主題狀態。
-3. **💫 滑鼠感應光暈 (Interactive Ambient Glow)**
+5. **💫 滑鼠感應光暈 (Interactive Ambient Glow)**
    - Wix 與 Dribbble 風格的背景漸層大光暈會隨滑鼠移動產生極細微的視差偏移（Parallax），增加視覺的深度與生命力。
-4. **📱 完美響應式設計 (RWD)**
+6. **📱 完美響應式設計 (RWD)**
    - 從超大桌面螢幕到手機裝置，所有卡片排版、字型大小及導覽列（手機版自動收縮為漢堡選單）皆能完美呈現。
-5. **⚡ 極簡高效無依賴**
+7. **⚡ 極簡高效無依賴**
    - 無需安裝繁重的 React / Vue 等框架，純 HTML / CSS / Vanilla JS 實作，網頁秒開，極致流暢。
 
 ---
@@ -32,8 +36,9 @@
 HW2/
 ├── index.html            # 網頁結構，包含各語意化區塊與 DOM 節點
 ├── style.css             # 樣式表，包含主題變數、玻璃擬態樣式與媒體查詢
-├── script.js             # 即時時鐘、主題切換及滑動監聽邏輯
+├── script.js             # 主題切換、導覽列、作品分頁籤及滑動監聽邏輯
 ├── IMG_1587.JPG          # 個人頭像照片
+├── photo/                # 各作品的展示縮圖截圖
 ├── work_log_process.md   # GitHub 專案開發工作日誌流程指南（流程圖與規範）
 ├── daily_log.md          # 每日開發工作日誌（實際紀錄與範本）
 └── README.md             # 本操作與部署指南說明文件
@@ -86,7 +91,7 @@ git init
 git add .
 
 # 3. 提交檔案並加上說明描述
-git commit -m "feat: init personal portfolio website with live clock"
+git commit -m "feat: init personal portfolio website"
 
 # 4. 設定分支名稱為 main
 git branch -M main
@@ -114,14 +119,14 @@ git push -u origin main
 
 本專案的程式碼結構清晰，您可以輕鬆做以下修改：
 
-1. **修改名字與職稱**：
-   - 開啟 [index.html](file:///index.html)，搜尋 `Ian Wang` 或 `Creative Frontend Engineer`，將其改為您的英文名字與工作定位。
+1. **修改名字與自我介紹**：
+   - 開啟 [index.html](file:///index.html)，搜尋 `Ian Wang`，將姓名與 `hero-description` 段落改為您自己的自我介紹文字。
 2. **替換個人頭像**：
    - 將您喜歡的個人頭像重新命名為 `IMG_1587.JPG`，並覆蓋專案根目錄下的同名檔案；或者在 [index.html](file:///index.html) 的頭像區域修改 `<img src="IMG_1587.JPG" ...>` 的路徑。
-3. **更改技能進度條**：
-   - 在 [index.html](file:///index.html) 的 `skills` 區塊中，修改 `style="width: 90%;"` 中的百分比，即可動態變更前端技能條長度。
-4. **修改專案內容**：
-    - 在 `portfolio` 區塊下，編輯各個 `<article class="project-card">` 內部的標題、文字與技術標籤。
+3. **調整技術標籤**：
+   - 在 [index.html](file:///index.html) 的 `skills` 區塊中，新增或刪除 `<span class="skill-chip">` 項目即可調整顯示的技術標籤。
+4. **修改作品內容**：
+   - 在 `portfolio` 區塊下，`#tab-classroom` 與 `#tab-project` 分別對應「課堂實作作品」與「專案作品」兩個分頁。編輯各個 `<article class="project-card">` 內部的連結、縮圖、標題、文字與技術標籤；縮圖檔案建議放在 `photo/` 資料夾內。
 
 ---
 
