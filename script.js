@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --------------------------------------------------------------------------
        1. 深淺色主題切換 (Theme Toggle)
        -------------------------------------------------------------------------- */
-    // 從 localStorage 讀取主題偏好，若無則預設為深色模式
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    // 從 localStorage 讀取主題偏好，若無則預設為淺色模式
+    const savedTheme = localStorage.getItem('theme') || 'light';
     
     if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
