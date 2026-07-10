@@ -28,9 +28,8 @@
             
             <nav class="nav-links" id="nav-menu">
                 <a href="#hero" class="nav-link active">首頁</a>
-                <a href="#about" class="nav-link">關於我</a>
-                <a href="#skills" class="nav-link">專業技能</a>
                 <a href="#portfolio" class="nav-link">個人作品</a>
+                <a href="#skills" class="nav-link">專業技能</a>
                 <a href="#contact" class="nav-link">聯絡我</a>
             </nav>
 
@@ -54,14 +53,12 @@
                 <h1 class="hero-title">
                     Hi, 我是 <span class="gradient-text">Ian Wang</span>
                 </h1>
-                <p class="hero-subtitle">Creative Frontend Engineer & Designer</p>
                 <p class="hero-description">
-                    熱衷於打造兼具視覺美感與極致使用者體驗的網頁應用。擅長將複雜的邏輯轉化為優雅直覺的介面設計。目前專注於響應式設計、動態互動效果與前端效能優化。
+                    我專注於人工智慧、資料分析與網頁系統開發，熟悉 Python、TypeScript 與機器學習相關技術，並持續透過實作累積扎實經驗。
                 </p>
-                <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">與我聯絡 <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#portfolio" class="btn btn-secondary">瀏覽作品</a>
-                </div>
+                <p class="hero-description">
+                    我擅長主動學習、拆解問題，並把想法一步步落實成可運作的作品——目標是成為能從真實需求出發、用技術解決問題的資料分析與 AI 應用工程師。
+                </p>
                 <div class="social-links">
                     <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
                     <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -69,21 +66,8 @@
                 </div>
             </div>
 
-            <!-- Right Visual (Clock & Avatar) -->
+            <!-- Right Visual (Avatar) -->
             <div class="hero-visual">
-                <!-- Real-time Clock Card -->
-                <div class="clock-card glass-card" id="live-clock-card">
-                    <div class="clock-header">
-                        <div class="clock-status">
-                            <span class="status-dot"></span>
-                            <span class="status-text">LIVE CLOCK</span>
-                        </div>
-                        <div class="clock-timezone-badge" id="clock-timezone">GMT+8</div>
-                    </div>
-                    <div class="clock-time-display" id="clock-time">00:00:00</div>
-                    <div class="clock-date-display" id="clock-date">2026年6月5日 星期五</div>
-                </div>
-
                 <!-- Avatar Card -->
                 <div class="avatar-card glass-card">
                     <div class="avatar-wrapper">
@@ -98,35 +82,228 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section section-padding" id="about">
+    <!-- Portfolio Section -->
+    <section class="portfolio-section section-padding" id="portfolio">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">About Me</span>
-                <h2 class="section-title">關於我</h2>
+                <span class="section-tag">Featured Works</span>
+                <h2 class="section-title">精選作品</h2>
                 <div class="section-divider"></div>
             </div>
-            
-            <div class="about-grid">
-                <div class="about-text-card glass-card">
-                    <h3 class="card-subtitle">我是誰？</h3>
-                    <p>
-                        我是 Ian Wang，一名熱愛前端開發與介面設計的工程師。擁有豐富的網頁專案開發經驗，致力於將美學與程式碼完美融合。我喜愛挑戰各種具互動性與視覺震撼的動態效果，並隨時學習最新的前端技術以保持競爭力。
-                    </p>
-                    <p>
-                        我相信一個優秀的網站不僅要功能完備，更需要給使用者帶來視覺上的享受。這就是為什麼我在開發過程中極度注重排版細節、配色調和以及流暢的微動畫效果。
-                    </p>
-                    <div class="personal-info-grid">
-                        <div class="info-item">
-                            <span class="info-label">信箱</span>
-                            <span class="info-value">a0970187258@gmail.com</span>
+
+            <div class="portfolio-tabs">
+                <button class="portfolio-tab-btn active" data-tab="tab-classroom">課堂實作作品</button>
+                <button class="portfolio-tab-btn" data-tab="tab-project">專案作品</button>
+            </div>
+
+            <div class="portfolio-grid" id="tab-classroom">
+                <!-- 3 -->
+                <article class="project-card glass-card">
+                    <a href="https://prompt-image-generator.streamlit.app/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                         </div>
-                        <div class="info-item">
-                            <span class="info-label">工作模式</span>
-                            <span class="info-value">接受遠端 / 自由接案</span>
+                        <img src="photo/超級圖像產生器.png" alt="超級圖像產生器縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">超級圖像產生器</h3>
+                        <p class="project-desc">
+                            透過提示詞產生圖像的工具網頁。
+                        </p>
+                        <div class="project-tech">
+                            <span>TypeScript</span>
+                            <span>Python</span>
                         </div>
                     </div>
-                </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="project-card glass-card">
+                    <a href="https://l6-hw4-ian.streamlit.app/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/線性迴歸和異常值偵測(手繪).png" alt="線性迴歸和異常值偵測縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">線性迴歸和異常值偵測</h3>
+                        <p class="project-desc">
+                            以線性迴歸模型分析資料並偵測異常值的練習專案。
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="project-card glass-card">
+                    <a href="https://l6-hw-5-machine-learning.vercel.app" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/十大機器學習演算法動態學習平台.png" alt="十大機器學習演算法動態學習平台縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">十大機器學習演算法動態學習平台</h3>
+                        <p class="project-desc">
+                            以互動方式介紹並示範十種機器學習演算法的學習平台。
+                        </p>
+                        <div class="project-tech">
+                            <span>TypeScript</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="project-card glass-card">
+                    <a href="https://ian0629082.github.io/Kaggle-50-Startups-Profit-Prediction/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/Kaggle 50 Startups 利潤預測面板.png" alt="Kaggle 50 Startups 利潤預測縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">Kaggle 50 Startups 利潤預測</h3>
+                        <p class="project-desc">
+                            使用 Kaggle 50 Startups 資料集預測公司利潤的分析專案。
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7 -->
+                <article class="project-card glass-card">
+                    <a href="https://l-11-lris-classification.streamlit.app/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/鳶尾花品種分類器.png" alt="鳶尾花品種分類器縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">鳶尾花品種分類器</h3>
+                        <p class="project-desc">
+                            以機器學習分類鳶尾花品種的練習專案。
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8 -->
+                <article class="project-card glass-card">
+                    <a href="https://l13-svmdemo.streamlit.app/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/SVM技巧3D互動.png" alt="SVM 技巧 3D 互動縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">SVM 技巧 3D 互動</h3>
+                        <p class="project-desc">
+                            以 3D 互動視覺化呈現 SVM 分類技巧的展示專案。
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 9 -->
+                <article class="project-card glass-card">
+                    <a href="https://dic9-moviecrawler-practise.vercel.app/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/電影爬蟲練習.png" alt="電影爬蟲練習縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">電影爬蟲練習</h3>
+                        <p class="project-desc">
+                            爬取電影相關資料並呈現的練習專案。
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 10 -->
+                <article class="project-card glass-card">
+                    <a href="https://hw-10-weather-windy.vercel.app/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/即時天氣視覺化儀表板1.png" alt="即時天氣視覺化儀表板縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">課堂實作</span>
+                        </div>
+                        <h3 class="project-title">即時天氣視覺化儀表板</h3>
+                        <p class="project-desc">
+                            呈現即時天氣資料的視覺化儀表板。
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="portfolio-grid" id="tab-project" hidden>
+                <!-- 11 -->
+                <article class="project-card glass-card">
+                    <a href="https://realty-price-valuation.vercel.app/" target="_blank" rel="noopener" class="project-preview" aria-label="查看專案詳情">
+                        <div class="project-overlay">
+                            <span class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                        </div>
+                        <img src="photo/行情與土地評估.png" alt="行情與土地評估縮圖" class="project-thumb-img">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-meta">
+                            <span class="project-tag">專案作品</span>
+                        </div>
+                        <h3 class="project-title">行情與土地評估</h3>
+                        <p class="project-desc">
+                            提供不動產行情與土地評估資訊的網頁應用。
+                        </p>
+                        <div class="project-tech">
+                            <span>TypeScript</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -145,125 +322,16 @@
                 <div class="skills-category glass-card">
                     <div class="category-header">
                         <i class="fa-solid fa-code category-icon"></i>
-                        <h3>程式與資料庫 (Programming & Database)</h3>
+                        <h3>使用過的技術</h3>
                     </div>
-                    <div class="skill-list">
-                        <div class="skill-progress-item">
-                            <div class="skill-name-info">
-                                <span>Python</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-progress-item">
-                            <div class="skill-name-info">
-                                <span>SQL (MySQL / PostgreSQL / SQLite)</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress" style="width: 80%;"></div>
-                            </div>
-                        </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip"><i class="fa-brands fa-python"></i>Python</span>
+                        <span class="skill-chip"><i class="fa-brands fa-html5"></i>HTML</span>
+                        <span class="skill-chip"><i class="fa-brands fa-css3-alt"></i>CSS</span>
+                        <span class="skill-chip"><i class="fa-brands fa-js"></i>JavaScript</span>
+                        <span class="skill-chip"><i class="fa-solid fa-code"></i>TypeScript</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio-section section-padding" id="portfolio">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-tag">Featured Works</span>
-                <h2 class="section-title">精選作品</h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="portfolio-grid">
-                <!-- Project 1 -->
-                <article class="project-card glass-card">
-                    <div class="project-preview">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="查看專案詳情"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                        <div class="project-placeholder-img proj-img-1">
-                            <i class="fa-solid fa-chart-line project-icon"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="project-tag">Web Application</span>
-                            <span class="project-date">2026</span>
-                        </div>
-                        <h3 class="project-title">智能數據分析後台</h3>
-                        <p class="project-desc">
-                            使用 HTML5、CSS3 與 Vanilla JS 打造的響應式管理後台。內建多種精美的圖表分析、動態搜尋過濾，以及玻璃擬態 UI。
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS Grid</span>
-                            <span>JS ES6</span>
-                            <span>Chart.js</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="project-card glass-card">
-                    <div class="project-preview">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="查看專案詳情"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                        <div class="project-placeholder-img proj-img-2">
-                            <i class="fa-solid fa-cart-shopping project-icon"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="project-tag">E-Commerce</span>
-                            <span class="project-date">2025</span>
-                        </div>
-                        <h3 class="project-title">極簡風線上選物店</h3>
-                        <p class="project-desc">
-                            著重於極簡設計的電商前台網頁。整合流暢的購物車添加動畫、商品詳情彈窗與自適應篩選面板。
-                        </p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>Flexbox</span>
-                            <span>Transitions</span>
-                            <span>Web Storage</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card glass-card">
-                    <div class="project-preview">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="查看專案詳情"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                        </div>
-                        <div class="project-placeholder-img proj-img-3">
-                            <i class="fa-solid fa-music project-icon"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-meta">
-                            <span class="project-tag">Interactive Design</span>
-                            <span class="project-date">2025</span>
-                        </div>
-                        <h3 class="project-title">互動式微光音樂播放器</h3>
-                        <p class="project-desc">
-                            一款擁有酷炫霓虹發光與頻率波形視覺效果的網頁音樂播放器。支援播放清單管理、歌詞滾動與自訂背景漸層。
-                        </p>
-                        <div class="project-tech">
-                            <span>Web Audio API</span>
-                            <span>CSS Keyframes</span>
-                            <span>Canvas</span>
-                        </div>
-                    </div>
-                </article>
             </div>
         </div>
     </section>
@@ -340,14 +408,12 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">IAN.DEV</div>
+            <p class="footer-info">
+                a0970187258@gmail.com ・ 接受遠端 / 自由接案
+            </p>
             <p class="footer-copy">
                 &copy; 2026 Ian Wang. 版權所有。由 Antigravity 團隊精心打造。
             </p>
-            <div class="footer-social">
-                <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="mailto:a0970187258@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
-            </div>
         </div>
     </footer>
 

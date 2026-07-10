@@ -1,16 +1,11 @@
 /* ==========================================================================
    Ian Wang Portfolio - Core JavaScript Logic
-   Includes: Real-time clock (per-second update), Dark/Light theme manager,
-             Sticky navbar scroll animations, Mobile menu toggle, and
-             Interactive parallax background glow effect.
+   Includes: Dark/Light theme manager, Sticky navbar scroll animations,
+             Mobile menu toggle, and Interactive parallax background glow effect.
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
-    const clockTime = document.getElementById('clock-time');
-    const clockDate = document.getElementById('clock-date');
-    const clockTimezone = document.getElementById('clock-timezone');
-    
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
     
@@ -23,62 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const glow2 = document.getElementById('glow-2');
 
     /* --------------------------------------------------------------------------
-       1. Real-time Clock (每秒自動更新)
-       -------------------------------------------------------------------------- */
-    function updateClock() {
-        const now = new Date();
-        
-        // 格式化時間 (HH:MM:SS)
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        clockTime.textContent = `${hours}:${minutes}:${seconds}`;
-        
-        // 格式化日期與星期
-        const year = now.getFullYear();
-        const month = now.getMonth() + 1;
-        const date = now.getDate();
-        
-        const weekDays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
-        const dayOfWeek = weekDays[now.getDay()];
-        
-        clockDate.textContent = `${year}年${month}月${date}日 ${dayOfWeek}`;
-    }
-
-    function initTimezone() {
-        try {
-            // 獲取使用者時區名稱
-            const timeZoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            
-            // 計算時區偏移 (e.g. GMT+8)
-            const offsetMinutes = new Date().getTimezoneOffset();
-            const offsetHours = -offsetMinutes / 60;
-            const displayOffset = offsetHours >= 0 ? `+${offsetHours}` : `${offsetHours}`;
-            
-            // 轉換時區名稱簡化顯示 (例如 Asia/Taipei 顯示為 台北時間)
-            let localeName = timeZoneName;
-            if (timeZoneName === 'Asia/Taipei') {
-                localeName = '台北時間';
-            } else if (timeZoneName === 'Asia/Hong_Kong') {
-                localeName = '香港時間';
-            } else if (timeZoneName === 'Asia/Tokyo') {
-                localeName = '東京時間';
-            }
-            
-            clockTimezone.textContent = `${localeName} (GMT${displayOffset})`;
-        } catch (e) {
-            clockTimezone.textContent = 'GMT+8';
-        }
-    }
-
-    // 初始化時鐘與時區
-    initTimezone();
-    updateClock();
-    // 每秒更新一次
-    setInterval(updateClock, 1000);
-
-    /* --------------------------------------------------------------------------
-       2. 深淺色主題切換 (Theme Toggle)
+       1. 深淺色主題切換 (Theme Toggle)
        -------------------------------------------------------------------------- */
     // 從 localStorage 讀取主題偏好，若無則預設為深色模式
     const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -108,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* --------------------------------------------------------------------------
-       3. 導覽列滾動效果與頁面滾動監聽 (Navbar Scroll & Active States)
+       2. 導覽列滾動效果與頁面滾動監聽 (Navbar Scroll & Active States)
        -------------------------------------------------------------------------- */
     const sections = document.querySelectorAll('section');
 
@@ -141,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* --------------------------------------------------------------------------
-       4. 行動裝置選單切換 (Mobile Menu Toggle)
+       3. 行動裝置選單切換 (Mobile Menu Toggle)
        -------------------------------------------------------------------------- */
     mobileMenuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('open');
@@ -161,6 +101,23 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('open');
             mobileMenuToggle.querySelector('i').className = 'fa-solid fa-bars';
+        });
+    });
+
+    /* --------------------------------------------------------------------------
+       4. 作品集分頁籤切換 (Portfolio Tabs)
+       -------------------------------------------------------------------------- */
+    const portfolioTabBtns = document.querySelectorAll('.portfolio-tab-btn');
+
+    portfolioTabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            portfolioTabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const targetId = btn.getAttribute('data-tab');
+            document.querySelectorAll('.portfolio-grid').forEach(grid => {
+                grid.hidden = grid.id !== targetId;
+            });
         });
     });
 

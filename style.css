@@ -39,9 +39,6 @@
     --input-focus-border: #06b6d4;
     --input-focus-shadow: rgba(6, 182, 212, 0.25);
 
-    --live-dot-color: #10b981;
-    --clock-glow: 0 0 15px rgba(6, 182, 212, 0.3);
-
     /* Transitions */
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,9 +72,6 @@ body.light-theme {
     --input-border: rgba(0, 0, 0, 0.08);
     --input-focus-border: #0891b2;
     --input-focus-shadow: rgba(8, 145, 178, 0.18);
-
-    --live-dot-color: #10b981;
-    --clock-glow: 0 0 15px rgba(8, 145, 178, 0.2);
 }
 
 /* --------------------------------------------------------------------------
@@ -448,54 +442,11 @@ body.light-theme .badge {
     margin-bottom: 16px;
 }
 
-.hero-subtitle {
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1.6rem;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-}
-
 .hero-description {
     font-size: 1.1rem;
     color: var(--text-secondary);
     margin-bottom: 36px;
     max-width: 540px;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 40px;
-}
-
-.social-links {
-    display: flex;
-    gap: 16px;
-}
-
-.social-links a {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--btn-secondary-bg);
-    border: 1px solid var(--btn-secondary-border);
-    color: var(--text-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-}
-
-.social-links a:hover {
-    color: var(--text-primary);
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-body.light-theme .social-links a:hover {
-    border-color: rgba(0, 0, 0, 0.15);
 }
 
 /* Right Visual Area */
@@ -504,103 +455,6 @@ body.light-theme .social-links a:hover {
     flex-direction: column;
     gap: 30px;
     position: relative;
-}
-
-/* Clock Card Styling */
-.clock-card {
-    padding: 28px;
-    position: relative;
-    overflow: hidden;
-    border-left: 4px solid #06b6d4;
-    box-shadow: var(--clock-glow), var(--card-shadow);
-}
-
-.clock-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 10% 20%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.clock-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.clock-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.status-dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--live-dot-color);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--live-dot-color);
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-    50% {
-        transform: scale(1.15);
-        opacity: 1;
-        box-shadow: 0 0 15px var(--live-dot-color);
-    }
-    100% {
-        transform: scale(0.9);
-        opacity: 0.6;
-    }
-}
-
-.clock-status .status-text {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
-    color: var(--text-secondary);
-}
-
-.clock-timezone-badge {
-    padding: 4px 10px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-}
-
-body.light-theme .clock-timezone-badge {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.06);
-}
-
-.clock-time-display {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 3.2rem;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    color: var(--text-primary);
-    text-shadow: var(--clock-glow);
-}
-
-.clock-date-display {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    font-weight: 500;
 }
 
 /* Avatar Card Styling */
@@ -612,8 +466,8 @@ body.light-theme .clock-timezone-badge {
 }
 
 .avatar-wrapper {
-    width: 80px;
-    height: 80px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid transparent;
@@ -647,72 +501,6 @@ body.light-theme .clock-timezone-badge {
 /* --------------------------------------------------------------------------
    6. About Section
    -------------------------------------------------------------------------- */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    align-items: stretch;
-}
-
-.about-text-card {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-subtitle {
-    font-family: var(--font-heading);
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 8px;
-}
-
-.card-subtitle::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background: var(--primary-gradient);
-}
-
-.about-text-card p {
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-}
-
-.personal-info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    border-top: 1px solid var(--card-border);
-    padding-top: 28px;
-    margin-top: 12px;
-}
-
-.info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.info-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
-
-.info-value {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
 .about-stats-card {
     display: flex;
     flex-direction: column;
@@ -786,46 +574,6 @@ body.light-theme .clock-timezone-badge {
     font-weight: 700;
 }
 
-.skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.skill-progress-item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.skill-name-info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-body.light-theme .progress-bar {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-.progress {
-    height: 100%;
-    background: var(--primary-gradient);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
-}
-
 .skill-chips {
     display: flex;
     flex-wrap: wrap;
@@ -867,10 +615,45 @@ body.light-theme .skill-chip:hover {
 /* --------------------------------------------------------------------------
    8. Portfolio Section
    -------------------------------------------------------------------------- */
+.portfolio-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.portfolio-tab-btn {
+    padding: 10px 24px;
+    border-radius: 999px;
+    border: 1px solid var(--card-border);
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast) ease;
+}
+
+.portfolio-tab-btn:hover {
+    color: var(--text-primary);
+    border-color: #06b6d4;
+}
+
+.portfolio-tab-btn.active {
+    background: var(--primary-gradient);
+    border-color: transparent;
+    color: #ffffff;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+}
+
+.portfolio-grid[hidden] {
+    display: none;
 }
 
 .project-card {
@@ -884,6 +667,14 @@ body.light-theme .skill-chip:hover {
     position: relative;
     aspect-ratio: 16 / 10;
     overflow: hidden;
+    display: block;
+}
+
+.project-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
 }
 
 /* CSS-only Beautiful Project Placeholders */
@@ -965,7 +756,8 @@ body.light-theme .proj-img-3 {
     transform: scale(1);
 }
 
-.project-card:hover .project-placeholder-img {
+.project-card:hover .project-placeholder-img,
+.project-card:hover .project-thumb-img {
     transform: scale(1.08);
 }
 
@@ -1174,23 +966,40 @@ body.light-theme .footer {
     color: var(--text-primary);
 }
 
-.footer-copy {
+.footer-copy,
+.footer-info {
     font-size: 0.9rem;
     color: var(--text-muted);
 }
 
-.footer-social {
+.social-links {
     display: flex;
     gap: 16px;
+    margin-top: 8px;
 }
 
-.footer-social a {
-    color: var(--text-muted);
+.social-links a {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--btn-secondary-bg);
+    border: 1px solid var(--btn-secondary-border);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.2rem;
 }
 
-.footer-social a:hover {
+.social-links a:hover {
     color: var(--text-primary);
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .social-links a:hover {
+    border-color: rgba(0, 0, 0, 0.15);
 }
 
 /* --------------------------------------------------------------------------
@@ -1206,10 +1015,6 @@ body.light-theme .footer {
         max-width: 540px;
         margin: 0 auto;
         width: 100%;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
     }
 
     .skills-grid {
@@ -1237,10 +1042,6 @@ body.light-theme .footer {
 
     .hero-title {
         font-size: 2.8rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
     }
 
     .hero-section {
