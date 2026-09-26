@@ -87,6 +87,7 @@ body.light-theme {
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Offset for sticky nav */
+    overflow-x: clip;
 }
 
 body {
@@ -231,6 +232,8 @@ body.light-theme .btn-secondary:hover {
 
 .section-container {
     max-width: 1200px;
+    width: 100%;
+    min-width: 0;
     margin: 0 auto;
     padding: 0 24px;
 }
@@ -291,6 +294,8 @@ body.light-theme .btn-secondary:hover {
 
 .nav-container {
     max-width: 1200px;
+    width: 100%;
+    min-width: 0;
     margin: 0 auto;
     padding: 20px 24px;
     display: flex;
@@ -392,6 +397,7 @@ body.light-theme .theme-btn:hover, body.light-theme .mobile-toggle:hover {
    -------------------------------------------------------------------------- */
 .hero-section {
     position: relative;
+    overflow: hidden;
     padding-top: 160px;
     padding-bottom: 100px;
     min-height: calc(100vh - 80px);
@@ -401,18 +407,54 @@ body.light-theme .theme-btn:hover, body.light-theme .mobile-toggle:hover {
 
 .hero-container {
     max-width: 1200px;
+    width: 100%;
+    min-width: 0;
     margin: 0 auto;
     padding: 0 24px;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: 60px;
     align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* 由捲動位置驅動的裝飾層，為首屏帶出空間深度。 */
+.hero-orbit {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.hero-orbit--cyan {
+    width: clamp(180px, 22vw, 320px);
+    height: clamp(180px, 22vw, 320px);
+    top: 16%;
+    right: -7%;
+    border: 1px solid rgba(6, 182, 212, 0.28);
+    box-shadow: inset 0 0 60px rgba(6, 182, 212, 0.08), 0 0 70px rgba(6, 182, 212, 0.08);
+}
+
+.hero-orbit--purple {
+    width: clamp(96px, 12vw, 176px);
+    height: clamp(96px, 12vw, 176px);
+    bottom: 7%;
+    left: 44%;
+    background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.25), rgba(168, 85, 247, 0.16) 35%, transparent 68%);
+    border: 1px solid rgba(168, 85, 247, 0.18);
+}
+
+[data-parallax] {
+    will-change: transform;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    min-width: 0;
 }
 
 .badge {
@@ -455,6 +497,7 @@ body.light-theme .badge {
     flex-direction: column;
     gap: 30px;
     position: relative;
+    min-width: 0;
 }
 
 /* Avatar Card Styling */
@@ -552,6 +595,7 @@ body.light-theme .badge {
     padding: 36px;
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .category-header {
@@ -648,7 +692,7 @@ body.light-theme .skill-chip:hover {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
 }
 
@@ -701,6 +745,7 @@ body.light-theme .skill-chip:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-width: 0;
 }
 
 .project-preview {
@@ -867,13 +912,14 @@ body.light-theme .project-tech span {
    -------------------------------------------------------------------------- */
 .contact-grid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     gap: 50px;
     align-items: stretch;
 }
 
 .contact-info-card {
     padding: 40px;
+    min-width: 0;
 }
 
 .contact-info-card h3 {
@@ -936,6 +982,7 @@ body.light-theme .detail-icon {
 /* Contact Form Styling */
 .contact-form-card {
     padding: 40px;
+    min-width: 0;
 }
 
 .form-group {
@@ -946,6 +993,10 @@ body.light-theme .detail-icon {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+
+.form-row > * {
+    min-width: 0;
 }
 
 .form-group label {
@@ -992,6 +1043,8 @@ body.light-theme .footer {
 
 .footer-container {
     max-width: 1200px;
+    width: 100%;
+    min-width: 0;
     margin: 0 auto;
     padding: 0 24px;
     display: flex;
@@ -1133,5 +1186,330 @@ body.light-theme .social-links a:hover {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive refinements
+   -------------------------------------------------------------------------- */
+html,
+body {
+    max-width: 100%;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* 平板：保留舒適閱讀寬度，讓雙欄在較窄裝置時自然改為單欄。 */
+@media (max-width: 1100px) {
+    .nav-container,
+    .section-container,
+    .hero-container,
+    .footer-container {
+        padding-left: clamp(20px, 4vw, 32px);
+        padding-right: clamp(20px, 4vw, 32px);
+    }
+
+    .hero-container {
+        gap: clamp(36px, 5vw, 50px);
+    }
+
+    .portfolio-grid {
+        gap: 24px;
+    }
+
+    .contact-grid {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-section {
+        min-height: auto;
+        padding-top: 140px;
+        padding-bottom: 80px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-description {
+        max-width: 620px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .avatar-card {
+        justify-content: center;
+    }
+}
+
+/* 直向與橫向平板皆使用收合式導覽，避免 768–1024px 的導覽列擠壓內容。 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-container,
+    .navbar.scrolled .nav-container {
+        min-height: 76px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 76px;
+        left: -100%;
+        width: 100%;
+        height: calc(100dvh - 76px);
+        min-height: calc(100vh - 76px);
+        padding: 32px;
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        border-top: 1px solid var(--nav-border);
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 99;
+    }
+
+    .nav-links.open {
+        left: 0;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 手機：避免固定高度導覽、按鈕與長文字造成水平捲動。 */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 72px;
+    }
+
+    .nav-container,
+    .navbar.scrolled .nav-container {
+        min-height: 72px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .nav-logo {
+        font-size: 1.25rem;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .theme-btn,
+    .mobile-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .nav-links {
+        top: 72px;
+        height: calc(100dvh - 72px);
+        min-height: calc(100vh - 72px);
+        padding: 32px 24px;
+    }
+
+    .section-padding {
+        padding: 64px 0;
+    }
+
+    .section-header {
+        margin-bottom: 36px;
+    }
+
+    .hero-section {
+        padding-top: 112px;
+        padding-bottom: 64px;
+    }
+
+    .hero-orbit--cyan {
+        top: 10%;
+        right: -18%;
+    }
+
+    .hero-orbit--purple {
+        left: 68%;
+        bottom: 4%;
+    }
+
+    .hero-title {
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        overflow-wrap: anywhere;
+    }
+
+    .hero-title .gradient-text {
+        display: block;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .badge {
+        margin-bottom: 18px;
+        font-size: 0.8rem;
+    }
+
+    .avatar-card,
+    .skills-category,
+    .contact-info-card,
+    .contact-form-card,
+    .project-info {
+        padding: 24px;
+    }
+
+    .avatar-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .avatar-wrapper {
+        width: 112px;
+        height: 112px;
+        flex: 0 0 112px;
+    }
+
+    .portfolio-tabs {
+        align-items: stretch;
+        flex-direction: column;
+        margin-bottom: 28px;
+    }
+
+    .portfolio-tab-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .portfolio-grid {
+        gap: 20px;
+    }
+
+    .portfolio-pagination {
+        margin-top: 24px;
+    }
+
+    .portfolio-pagination--top {
+        margin-top: -4px;
+        margin-bottom: 20px;
+    }
+
+    .contact-grid {
+        gap: 24px;
+    }
+
+    .contact-info-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-lead {
+        margin-bottom: 28px;
+    }
+
+    .detail-item {
+        gap: 14px;
+    }
+
+    .detail-content {
+        min-width: 0;
+    }
+
+    .detail-content a,
+    .detail-content p {
+        overflow-wrap: anywhere;
+    }
+
+    .footer {
+        padding: 32px 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .nav-container,
+    .section-container,
+    .hero-container,
+    .footer-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .social-links {
+        gap: 12px;
+    }
+
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
+
+    .avatar-card,
+    .skills-category,
+    .contact-info-card,
+    .contact-form-card,
+    .project-info {
+        padding: 20px;
+    }
+}
+
+@media (hover: none) {
+    .project-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(10, 12, 20, 0.55), transparent 55%);
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 14px;
+        pointer-events: none;
+    }
+
+    .project-link {
+        width: 42px;
+        height: 42px;
+        transform: scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    [data-parallax] {
+        transform: none !important;
     }
 }

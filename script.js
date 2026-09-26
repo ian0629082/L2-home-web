@@ -86,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('open');
         const isOpen = navMenu.classList.contains('open');
+        mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+        mobileMenuToggle.setAttribute('aria-label', isOpen ? '關閉選單' : '開啟選單');
+        document.body.classList.toggle('menu-open', isOpen);
         
         // 切換按鈕圖示
         const toggleIcon = mobileMenuToggle.querySelector('i');
@@ -101,7 +104,21 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('open');
             mobileMenuToggle.querySelector('i').className = 'fa-solid fa-bars';
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.setAttribute('aria-label', '開啟選單');
+            document.body.classList.remove('menu-open');
         });
+    });
+
+    // 螢幕切回桌面尺寸時，確保行動版選單不會留下開啟狀態。
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024 && navMenu.classList.contains('open')) {
+            navMenu.classList.remove('open');
+            mobileMenuToggle.querySelector('i').className = 'fa-solid fa-bars';
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.setAttribute('aria-label', '開啟選單');
+            document.body.classList.remove('menu-open');
+        }
     });
 
     /* --------------------------------------------------------------------------
@@ -187,6 +204,46 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --------------------------------------------------------------------------
        5. 鼠標動態背景光暈跟隨 (Wow Factor: Interactive Background Glow)
        -------------------------------------------------------------------------- */
+    /* --------------------------------------------------------------------------
+       5. 捲動視差：以 requestAnimationFrame 維持平順，並尊重減少動態效果偏好
+       -------------------------------------------------------------------------- */
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let parallaxFrame = null;
+
+    const updateParallax = () => {
+        parallaxFrame = null;
+        if (reducedMotionQuery.matches) return;
+
+        const viewportHeight = window.innerHeight;
+        parallaxElements.forEach(element => {
+            const speed = Number(element.dataset.parallax) || 0;
+            const rect = element.getBoundingClientRect();
+            const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+            const distance = (progress - 0.5) * speed * 320;
+            element.style.transform = `translate3d(0, ${distance.toFixed(2)}px, 0)`;
+        });
+    };
+
+    const requestParallaxUpdate = () => {
+        if (!parallaxFrame) {
+            parallaxFrame = window.requestAnimationFrame(updateParallax);
+        }
+    };
+
+    if (parallaxElements.length) {
+        requestParallaxUpdate();
+        window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
+        window.addEventListener('resize', requestParallaxUpdate, { passive: true });
+        reducedMotionQuery.addEventListener('change', () => {
+            if (reducedMotionQuery.matches) {
+                parallaxElements.forEach(element => element.style.removeProperty('transform'));
+            } else {
+                requestParallaxUpdate();
+            }
+        });
+    }
+
     document.addEventListener('mousemove', (e) => {
         const mouseX = e.clientX;
         const mouseY = e.clientY;

@@ -37,7 +37,7 @@
                 <button class="theme-btn" id="theme-toggle" aria-label="切換深淺色模式">
                     <i class="fa-solid fa-moon"></i>
                 </button>
-                <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="開啟選單">
+                <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="開啟選單" aria-controls="nav-menu" aria-expanded="false">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
@@ -46,9 +46,11 @@
 
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
+        <span class="hero-orbit hero-orbit--cyan" data-parallax="0.30" aria-hidden="true"></span>
+        <span class="hero-orbit hero-orbit--purple" data-parallax="-0.22" aria-hidden="true"></span>
         <div class="hero-container">
             <!-- Left Content -->
-            <div class="hero-content">
+            <div class="hero-content" data-parallax="0.12">
                 <div class="badge">👋 歡迎來到我的個人網站</div>
                 <h1 class="hero-title">
                     Hi, 我是 <span class="gradient-text">Ian Wang</span>
@@ -67,7 +69,7 @@
             </div>
 
             <!-- Right Visual (Avatar) -->
-            <div class="hero-visual">
+            <div class="hero-visual" data-parallax="-0.16">
                 <!-- Avatar Card -->
                 <div class="avatar-card glass-card">
                     <div class="avatar-wrapper">
@@ -85,7 +87,7 @@
     <!-- Portfolio Section -->
     <section class="portfolio-section section-padding" id="portfolio">
         <div class="section-container">
-            <div class="section-header">
+            <div class="section-header" data-parallax="0.08">
                 <span class="section-tag">Featured Works</span>
                 <h2 class="section-title">精選作品</h2>
                 <div class="section-divider"></div>
@@ -412,7 +414,7 @@
     <!-- Skills Section -->
     <section class="skills-section section-padding" id="skills">
         <div class="section-container">
-            <div class="section-header">
+            <div class="section-header" data-parallax="0.08">
                 <span class="section-tag">My Expertise</span>
                 <h2 class="section-title">專業技能</h2>
                 <div class="section-divider"></div>
@@ -445,7 +447,7 @@
     <!-- Contact Section -->
     <section class="contact-section section-padding" id="contact">
         <div class="section-container">
-            <div class="section-header">
+            <div class="section-header" data-parallax="0.08">
                 <span class="section-tag">Get In Touch</span>
                 <h2 class="section-title">聯絡我</h2>
                 <div class="section-divider"></div>
